@@ -1,0 +1,144 @@
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-white text-black font-semibold rounded-lg transition-all duration-200 hover:bg-gray-200;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent text-white font-semibold rounded-lg border-2 border-white transition-all duration-200 hover:bg-white hover:text-black;
+  }
+
+  .card {
+    @apply bg-(--bg-secondary) border border-(--border-color) rounded-lg p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-(--bg-tertiary) border border-(--border-color) rounded-lg text-white placeholder:text-(--text-muted) focus:outline-hidden focus:border-white transition-colors;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+}
+
+.animate-floatSlow {
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+@keyframes floatReverse {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+}
+
+.animate-floatReverse {
+  animation: floatReverse 12s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(20px) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 6s linear infinite;
+}
+
+.animate-orbitSlow {
+  animation: orbit 10s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 1.2s ease forwards;
+}
